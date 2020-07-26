@@ -7,6 +7,7 @@ import ReviewCard from 'components/ReviewCard'
 
 import reviews from './content'
 import * as S from './styles'
+import { SectionReviewsProps } from 'types/api'
 
 const settings = {
   dots: true,
@@ -30,18 +31,22 @@ const settings = {
   ]
 }
 
-const SectionReviews = () => (
+type SectionReviews = {
+  sectionReviews: SectionReviewsProps
+}
+
+const SectionReviews: React.FC<SectionReviews> = ({ sectionReviews }) => (
   <Container>
-    <Heading reverseColor>Junte-se a mais de 200 mil alunos</Heading>
+    <Heading reverseColor>{sectionReviews.title}</Heading>
 
     <S.Content>
       <Slider {...settings}>
-        {reviews.map(({ name, image, description }, index) => (
+        {sectionReviews.reviews.map(({ name, photo, text }, index) => (
           <ReviewCard
             key={index}
             name={name}
-            image={image}
-            description={description}
+            photo={photo}
+            text={text}
             id={index}
           />
         ))}
