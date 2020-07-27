@@ -49,7 +49,7 @@ $ cd reactavancado-landingpage
 $ yarn install
 
 # Run the app
-$ yarn start
+$ yarn dev
 ```
 
 ## :memo: License
